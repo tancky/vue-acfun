@@ -1,0 +1,322 @@
+//全局字体设置14px;
+@netsize: 1.4rem;
+@netsmallsize: 1.4rem;
+
+.headpage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-x: hidden;
+  .a-header {
+    background-color: #fd4c5d;
+    .left-header {
+      padding-top: 1.5rem;
+      .fa {
+        color: #ffffff;
+      }
+      .fa-bars {
+        font-size: 1.8rem;
+        margin-left: -.4rem;
+      }
+      .a-user-pic {
+        height: 3.6rem;
+        width: 3.6rem;
+        margin-left: .5rem;
+        line-height: 3.5rem;
+        border-radius: 50%;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+      .ac-Logo {
+        height: 2.5rem;
+        width: 7.5rem;
+        margin-left: .5rem;
+        line-height: 2rem;
+        vertical-align: middle;
+      }
+    }
+    .right-header {
+      padding-top: 2.6rem;
+      .fa {
+        color: #ffffff;
+      }
+      .fa-gamepad,
+      .fa-download,
+      .fa-history,
+      .fa-search {
+        font-size: 1.8rem;
+        margin-right: 1.5rem;
+      }
+    }
+    .a-navbar {
+      padding-top: 3rem;
+      padding-bottom: 1rem;
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      li {
+        flex: 1;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: rgba(225,225,225,.95);
+      }
+      a {
+        position: relative;
+      }
+      a.router-link-active {
+        position: relative;
+        color: #ffffff;
+        font-weight: 550;
+      }
+      a.router-link-active:after {
+        position: absolute;
+        top: 2.5rem;
+        left: 22%;
+        right: 22%;
+        width: 55%;
+        border-radius: 15%;
+        border-bottom: .3rem solid #ffffff;
+        content: '';
+      }
+
+    }
+  }
+
+  .a-content {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55.5rem;
+    overflow-x: hidden;
+    background-color: #f1f1f1;
+  }
+
+  .a-sidebar.fold-enter-active,
+  .a-sidebar.fold-leave-active {
+    transition: all 0.5s;
+  }
+  .a-sidebar.fold-enter,
+  .a-sidebar.fold-leave-active {
+    transform: translate3d(-100%, 0, 0);
+  }
+  .a-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 70%;
+    z-index: 101;
+    overflow: auto;
+    background-color: #fff;
+    transform: translate3d(0, 0, 0);
+    .user {
+      position: relative;
+      width: 100%;
+      background-image: url('../img/siderbar-pic.jpg');
+      > img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        margin-top: 2rem;
+        margin-left: 1.5rem;
+      }
+      .user-icon {
+        float: right;
+        margin-right: 1.5rem;
+        margin-top: 1.8rem;
+        .fa {
+          font-size: 2.0rem;
+          padding: .5rem;
+          text-align: center;
+          color: #fff;
+        }
+      }
+      .user-desc {
+        margin-top: .5rem;
+        color: #fff;
+        .user-name {
+          span {
+            font-size: 1.8rem;
+            padding-left: 1.4rem;
+          }
+        }
+        .user-info {
+          margin-top: .8rem;
+          padding-bottom: .8rem;
+          .user-grade {
+            margin-left: 1.3rem;
+            padding-left: .3rem;
+            padding-right: .3rem;
+            border: .05rem solid #fff;
+            border-radius: 28%;
+            background-color: #66FF33;
+          }
+          .user-vip {
+            padding-left: .5rem;
+          }
+          > img {
+            width: 2.5rem;
+            height: 2.5rem;
+            padding-left: .8rem;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .a-sideItem {
+      width: 100%;
+      background-color: #FAFAFA;
+      overflow-x: hidden;
+      .SignIn {
+        width: 90%;
+        height: 3rem;
+        line-height: 3rem;
+        margin: 1.5rem auto;
+        border: .1rem solid #ccc;
+        border-radius: 3rem;
+        background-color: #fd4c5d;
+        text-align: center;
+        color: #fff;
+        span {
+          margin-top: 1rem;
+          font-size: 1.8rem;
+        }
+      }
+      .sidelist {
+        padding-bottom: .8rem;
+        font-size: 1.6rem;
+        color: #000;
+        li {
+          margin-left: .8rem;
+          margin-bottom: 1.8rem;
+          > img {
+            margin-right: 1rem;
+            vertical-align: middle;
+          }
+          span {
+            margin-top: 1rem;
+          }
+          &:active {
+            background-color: #666;
+            opacity: 0.3;
+            transition: all .8s
+          }
+        }
+      }
+    }
+  }
+
+  .search.slide-enter-active,
+  .search.slide-leave-active {
+    transition: all 0.1s;
+  }
+  .search.slide-enter,
+  .search.slide-leave-active {
+    transform: translate3d( 100%, 0, 0)
+  }
+
+  .searchBar {
+    position: fixed ;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    background-color: #fff;
+    .s-head {
+      display: flex;
+      background-color: #fd4c5d;
+      input {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        border: none;
+        outline: none;
+        width: 80%;
+        height: 1.8rem;
+        font-size: 1.4rem;
+        border-radius: .3rem;
+      }
+      .fa {
+        font-size: 2rem;
+        color: #fff;
+        font-weight: bold;
+      }
+      .fa-angle-left {
+        margin-left: 1.5rem;
+        margin-top: 1.3rem;
+        margin-right: 1.5rem;
+        font-size: 2.5rem;
+      }
+      .fa-search {
+        margin-left: 1rem;
+        margin-top: 1.5rem;
+        margin-right: 1.5rem;
+      }
+    }
+    .s-hot {
+      position: relative;
+      h2 {
+        margin-left: 1rem;
+        margin-top: .5rem;
+        font-size: 1.5rem;
+        color: #999;
+        font-weight: normal;
+      }
+      .hot-list {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.4rem;
+        margin-left: 1rem;
+        margin-top: .5rem;
+        li {
+          margin: .5rem;
+          padding: .5rem .8rem;
+          border: .1rem solid #ccc;
+          border-radius: .3rem;
+          &:active {
+            background-color: #666;
+            opacity: 0.3;
+            transition: all .8s
+          }
+        }
+      }
+    }
+  }
+
+
+
+  .mask.fade-enter-active,
+  .mask.fade-leave-active {
+    transition: all 1s;
+  }
+  .mask.fade-enter,
+  .mask.fade-leave-active {
+    opacity: 0;
+  }
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(7,17,27,.6);
+  }
+}
+
+
+
+
