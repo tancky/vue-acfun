@@ -23,6 +23,7 @@ const store= new Vuex.Store({
   state: {
     banner: [],
     showList: [],
+    recommendList: [],
     skinColor: localStorage.skinColor || 'fd4c5d',
     searchbarShow: false
   },
@@ -43,3 +44,4 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
