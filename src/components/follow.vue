@@ -5,7 +5,8 @@
       <i class="fa fa-angle-right fr"></i>
     </div>
     <div class="box">
-      <span>你还没有在追的番剧哦 ~ 戳我吃安利！</span>
+      <span>您还没有在追的番剧哦 ~</span>
+      <img src="../assets/img/follow-pic.png" alt="">
     </div>
     <a-progressbar></a-progressbar>
   </div>
