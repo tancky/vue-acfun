@@ -182,7 +182,7 @@ export default {
       },
       back () {
         this.$router.push(
-          {path: '/'}
+          {path: '/recommend'}
         )
         this.$store.state.searchbarShow  = false
       }
