@@ -1,6 +1,31 @@
-# vue-acfun
+# Vue全家桶仿移动端AcFun弹幕视频网WebApp
 
-> A Vue.js project
+> 个人实现的一个较为完整的vue项目（1.0版本），部分细节还在优化中，欢迎star！star！star！
+
+## 项目描述
+
+- [项目源码](https://github.com/tancky/vue-acfun/)
+- [在线预览](https://github.com/tancky/vue-acfun/)(待实现)
+
+### 技术栈
+
+- ES6  全面ES6语法编写
+- Vue.js (version 2.0)  
+- Vue-router  Vue官方路由库,处理路由请求
+- axios  处理Ajax请求 
+- Vuex  状态管理模式，管理组件间的状态，实现非父子组件之间的通信
+- mint-ui 移动端UI组件库
+- less CSS预处理语言
+- Express vue-cli使用Express做服务器
+- webpack 前端模块化解决方案兼打包构建工具
+
+### 功能介绍
+> v-1.0版本
+
+- AcFun首页（关注、推荐、番剧、娱乐、文章、频道、侧边栏滑动切换）
+- 搜索页面
+- 页面主题颜色切换
+
 
 ## Build Setup
 
