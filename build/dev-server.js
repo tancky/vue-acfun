@@ -11,6 +11,7 @@ var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
+var http = require('http')
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -67,7 +68,7 @@ router.get('/show-list', (req, res) => {
     })
 })
 
-router.get('/recommond-list', (req, res) => {
+router.get('/recommend-list', (req, res) => {
   function search() {
     return new Promise((resolve, reject) => {
       let recommond = '';
@@ -131,7 +132,6 @@ router.get('/search/:aid', (req, res) => {
       res.json(JSON.parse(searchResult))
     })
 })
-
 
 app.use('/api', router);
 //分割线
