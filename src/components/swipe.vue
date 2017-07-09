@@ -23,8 +23,15 @@
         banner () {
           return this.$store.state.banner
         }
+      },
+    // 生命周期钩子函数，在created函数中调用ajax获取页面初始化所需的数据。
+      created () {
+          this.axios.get('/api/banner')
+            .then(res => {
+              this.$store.state.banner=res.data.data
+//              console.log(res)
+            })
       }
-
   }
 </script>
 
