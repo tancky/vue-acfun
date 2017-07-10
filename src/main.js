@@ -23,6 +23,7 @@ const store= new Vuex.Store({
   state: {
     banner: [],
     showList: [],
+    dramaList: [],
     recommendList: [],
     skinColor: localStorage.skinColor || 'fd4c5d',
     searchbarShow: false
