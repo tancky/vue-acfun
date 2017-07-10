@@ -14,7 +14,7 @@
           <div class="top-user">
             <span class="top-author">{{item.author}}</span>
             <i class="fa fa-eye"></i>
-            <span class="watch-num">{{item.play}}</span>
+            <span class="watch-num fr">{{item.play}}</span>
           </div>
         </div>
       </div>
@@ -42,8 +42,8 @@
       created() {
           this.axios.get('/api/recommend-list')
             .then(res => {
-                console.log(res);
               this.$store.state.recommendList = res.data.list;
+//              console.log(res.data.list);
             })
       }
   }
