@@ -2,6 +2,7 @@
   <div class="wrap">
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_03/1488523536162.gif?imageView2/1/w/100/h/100" alt="">
         <h4>番剧</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
@@ -14,6 +15,7 @@
     </div>
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_03/1488523569142.gif" alt="">
         <h4>动画</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
@@ -25,6 +27,7 @@
     </div>
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_03/1488523474487.gif" alt="">
         <h4>娱乐</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
@@ -38,6 +41,7 @@
     </div>
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_03/1488523552005.gif" alt="">
         <h4>游戏</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
@@ -53,6 +57,7 @@
     </div>
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_03/1488523586727.gif" alt="">
         <h4>音乐</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
@@ -67,6 +72,7 @@
     </div>
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_03/1488523606418.gif" alt="">
         <h4>舞蹈</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
@@ -80,6 +86,7 @@
     </div>
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_03/1488523679990.gif" alt="">
         <h4>科技</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
@@ -93,6 +100,7 @@
     </div>
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_03/1488523695622.gif" alt="">
         <h4>体育</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
@@ -107,6 +115,7 @@
     </div>
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_03/1488523660989.gif" alt="">
         <h4>鱼塘</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
@@ -116,6 +125,7 @@
     </div>
     <div class="channel-nav">
       <div class="clearfix">
+        <img src="http://imgs.aixifan.com/cms/2017_03_10/1489114940717.gif?imageView2/1/w/100/h/100" alt="">
         <h4>文章</h4>
         <span>更多<i class="fa fa-angle-right"></i></span>
       </div>
