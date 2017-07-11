@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <a-swipe></a-swipe>
+    <img src="../assets/img/drama-banner.png" alt="" class="drama-banner">
     <ul class="drama-nav">
       <li>新番连载</li>
       <li>旧番补档</li>
@@ -24,16 +24,11 @@
 </template>
 
 <script>
-  import aSwipe from '@/components/swipe.vue'
-
   export default {
       data() {
           return {
 
           }
-      },
-      components: {
-          aSwipe
       },
       computed: {
           dramaList() {
