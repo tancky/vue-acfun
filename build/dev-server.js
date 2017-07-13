@@ -26,114 +26,114 @@ var compiler = webpack(webpackConfig)
 
 var router =express.Router()
 
-router.get('/banner', (req, res) => {
-  function search() {
-    return new Promise((resolve, reject) => {
-      let banner = '';
-      let url = 'http://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=0&id=23&_=1482805801599'
-      http.get(url, response => {
-        response.on('data', data => {
-          banner += data;
-        });
-        response.on('end', () => {
-          resolve(banner)
-        })
-      })
-    })
-  }
-  search()
-    .then(banner => {
-      res.json(JSON.parse(banner))
-    })
-})
-
-router.get('/show-list', (req, res) => {
-  function search() {
-    return new Promise((resolve, reject) => {
-      let showList = '';
-      let url = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=34'
-      http.get(url, response => {
-        response.on('data', data => {
-          showList += data;
-        });
-        response.on('end', () => {
-          resolve(showList)
-        })
-      })
-    })
-  }
-  search()
-    .then(showList => {
-      res.json(JSON.parse(showList))
-    })
-})
-
-router.get('/recommend-list', (req, res) => {
-  function search() {
-    return new Promise((resolve, reject) => {
-      let recommond = '';
-      let url = 'http://www.bilibili.com/index/recommend.json'
-      http.get(url, response => {
-        response.on('data', data => {
-          recommond += data;
-        });
-        response.on('end', () => {
-          resolve(recommond)
-        })
-      })
-    })
-  }
-  search()
-    .then(recommond => {
-      res.json(JSON.parse(recommond))
-    })
-})
-
-router.get('/comments/:aid', (req, res) => {
-  let aid = req.params.aid;
-  function search(tab) {
-    return new Promise((resolve, reject) => {
-      let commentsResult = '';
-      let url = 'http://api.bilibili.com/x/v2/reply?type=1&oid='+ aid
-      http.get(url, response => {
-        response.on('data', data => {
-          commentsResult += data;
-        });
-        response.on('end', () => {
-          resolve(commentsResult)
-        })
-      })
-    })
-  }
-  search(aid)
-    .then(commentsResult => {
-      res.json(JSON.parse(commentsResult))
-    })
-})
-
-router.get('/search/:aid', (req, res) => {
-  let aid = req.params.aid;
-  function search(tab) {
-    return new Promise((resolve, reject) => {
-      let searchResult = '';
-      let url = 'http://api.bilibili.com/x/tag/archive/tags?aid=' + aid + '&jsonp=jsonp&_=1482889080659'
-      http.get(url, response => {
-        response.on('data', data => {
-          searchResult += data;
-        });
-        response.on('end', () => {
-          resolve(searchResult)
-        })
-      })
-    })
-  }
-  search(aid)
-    .then(searchResult => {
-      res.json(JSON.parse(searchResult))
-    })
-})
-
-app.use('/api', router);
+// router.get('/banner', (req, res) => {
+//   function search() {
+//     return new Promise((resolve, reject) => {
+//       let banner = '';
+//       let url = 'http://api.bilibili.com/x/web-show/res/loc?jsonp=jsonp&pf=0&id=23&_=1482805801599'
+//       http.get(url, response => {
+//         response.on('data', data => {
+//           banner += data;
+//         });
+//         response.on('end', () => {
+//           resolve(banner)
+//         })
+//       })
+//     })
+//   }
+//   search()
+//     .then(banner => {
+//       res.json(JSON.parse(banner))
+//     })
+// })
+//
+// router.get('/show-list', (req, res) => {
+//   function search() {
+//     return new Promise((resolve, reject) => {
+//       let showList = '';
+//       let url = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=34'
+//       http.get(url, response => {
+//         response.on('data', data => {
+//           showList += data;
+//         });
+//         response.on('end', () => {
+//           resolve(showList)
+//         })
+//       })
+//     })
+//   }
+//   search()
+//     .then(showList => {
+//       res.json(JSON.parse(showList))
+//     })
+// })
+//
+// router.get('/recommend-list', (req, res) => {
+//   function search() {
+//     return new Promise((resolve, reject) => {
+//       let recommond = '';
+//       let url = 'http://www.bilibili.com/index/recommend.json'
+//       http.get(url, response => {
+//         response.on('data', data => {
+//           recommond += data;
+//         });
+//         response.on('end', () => {
+//           resolve(recommond)
+//         })
+//       })
+//     })
+//   }
+//   search()
+//     .then(recommond => {
+//       res.json(JSON.parse(recommond))
+//     })
+// })
+//
+// router.get('/comments/:aid', (req, res) => {
+//   let aid = req.params.aid;
+//   function search(tab) {
+//     return new Promise((resolve, reject) => {
+//       let commentsResult = '';
+//       let url = 'http://api.bilibili.com/x/v2/reply?type=1&oid='+ aid
+//       http.get(url, response => {
+//         response.on('data', data => {
+//           commentsResult += data;
+//         });
+//         response.on('end', () => {
+//           resolve(commentsResult)
+//         })
+//       })
+//     })
+//   }
+//   search(aid)
+//     .then(commentsResult => {
+//       res.json(JSON.parse(commentsResult))
+//     })
+// })
+//
+// router.get('/search/:aid', (req, res) => {
+//   let aid = req.params.aid;
+//   function search(tab) {
+//     return new Promise((resolve, reject) => {
+//       let searchResult = '';
+//       let url = 'http://api.bilibili.com/x/tag/archive/tags?aid=' + aid + '&jsonp=jsonp&_=1482889080659'
+//       http.get(url, response => {
+//         response.on('data', data => {
+//           searchResult += data;
+//         });
+//         response.on('end', () => {
+//           resolve(searchResult)
+//         })
+//       })
+//     })
+//   }
+//   search(aid)
+//     .then(searchResult => {
+//       res.json(JSON.parse(searchResult))
+//     })
+// })
+//
+// app.use('/api', router);
 //分割线
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

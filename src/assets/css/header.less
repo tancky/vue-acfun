@@ -182,9 +182,7 @@
         margin: 1.5rem auto;
         border: .1rem solid #ccc;
         border-radius: 3rem;
-        background-color: #fd4c5d;
         text-align: center;
-        color: #fff;
         span {
           margin-top: 1rem;
           font-size: 1.8rem;
@@ -264,6 +262,42 @@
         margin-left: 1rem;
         margin-top: 1.5rem;
         margin-right: 1.5rem;
+      }
+    }
+    .searchList {
+      position: absolute;
+      z-index: 999;
+      top: 5rem;
+      left: 0;
+      right: 0;
+      width: 98%;
+      ul {
+        width: 100%;
+        background-color: #fff;
+        li {
+          border-bottom: 1px solid #f1f1f1;
+          height: 10%;
+          img {
+            width: 10rem;
+            height: 6rem;
+            margin-left: .5rem;
+            margin-top: .5rem;
+            vertical-align: top;
+          }
+          .title {
+            position: absolute;
+            margin-top: .5rem;
+            margin-left: .5rem;
+            font-size: 1.3rem;
+            line-height: 1.5rem;
+          }
+          .author {
+            position: absolute;
+            margin-top: 5rem;
+            margin-left: .6rem;
+            color: #9c9c9c;
+          }
+        }
       }
     }
     .s-hot {

@@ -24,28 +24,26 @@
 
 <script>
   import aSwipe from '@/components/swipe.vue'
-
   export default {
-      data() {
-          return {
-
-          }
-      },
-      components: {
-          aSwipe
-      },
-      computed: {
-          recommendList() {
-              return this.$store.state.recommendList;
-          }
-      },
-      created() {
-          this.axios.get('/api/recommend-list')
-            .then(res => {
-              this.$store.state.recommendList = res.data.list;
-//              console.log(res.data.list);
-            })
+    data() {
+      return {
       }
+    },
+    components: {
+      aSwipe
+    },
+    computed: {
+      recommendList() {
+        return this.$store.state.recommendList;
+      }
+    },
+    created() {
+      this.axios.get('https://api.imjad.cn/bilibili/?get=recommend')
+        .then(res => {
+          this.$store.state.recommendList = res.data.list;
+//              console.log(res.data.list);
+        })
+    }
   }
 </script>
 

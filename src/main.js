@@ -21,12 +21,12 @@ Vue.use(Vuex)
 
 const store= new Vuex.Store({
   state: {
-    banner: [],
-    showList: [],
     dramaList: [],
+    searchList: [],
     recommendList: [],
     skinColor: localStorage.skinColor || 'fd4c5d',
-    searchbarShow: false
+    searchbarShow: false,
+    isListShow: false
   },
   mutations: {
     changeColor(state,color) {

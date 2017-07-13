@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="header-bar">
-        <i class="fa fa-arrow-left" @click="back"></i>
+      <i class="fa fa-arrow-left" @click="back"></i>
       <span>av{{aid}}</span>
       <i class="fa fa-ellipsis-v"></i>
     </div>
@@ -23,7 +23,7 @@
           <img src="https://ooo.0o0.ooo/2017/06/30/595605552345a.png" alt="">
           <h4>UP主:</h4>
           <p class="author-name">{{searchAuthor}}</p>
-          <div class="follow" @click="following">
+          <div class="follow" :style="follow" @click="following">
             <span>{{message}}</span>
           </div>
         </div>
@@ -51,18 +51,22 @@
 
 <script>
   export default {
-      data() {
-          return {
-            isInfoShow: true,
-            isCommentShow: false,
-            aid: this.$route.params.aid,
-            videoSrc: '',
-            comment: '',
-            cmtContent: '',
-            info: '',
-            message: '+ 关 注'
-          }
-      },
+    data() {
+      return {
+        isInfoShow: true,
+        isCommentShow: false,
+        aid: this.$route.params.aid,
+        videoSrc: '',
+        comment: '',
+        cmtContent: '',
+        info: '',
+        message: '+ 关 注',
+        follow: {
+          color: '#fff',
+          backgroundColor: '#fd4c5d'
+        }
+      }
+    },
     computed: {
       searchTitle () {
         return this.$store.state.searchTitle
@@ -71,27 +75,19 @@
         return this.$store.state.searchDesc
       },
       searchAuthor() {
-          return this.$store.state.searchAuthor
+        return this.$store.state.searchAuthor
       }
     },
     created() {
       let aid =  this.$route.params.aid
-      this.axios.get('/api/comments/' + aid)
+      this.axios.get('https://api.imjad.cn/bilibili/?get=comments&aid=' + aid)
         .then((res) => {
 //          console.log(res.data.data.replies)
-          this.comment = res.data.data.replies;
-      })
-        .catch((error) => {
-          console.log(error)
-      })
-      this.axios.get('/api/search/' + aid)
-        .then((res) => {
-          console.log(res.data.data)
-          this.info = res.data.data;
-      })
-        .catch((error) => {
-          console.log(error)
-      })
+        this.comment = res.data.data.replies;
+    })
+    .catch((error) => {
+        console.log(error)
+    })
     },
     mounted() {
       let aid = this.$route.params.aid;
@@ -99,10 +95,10 @@
         .then((res)=> {
 //          console.log(res);
           this.videoSrc= res.data.durl[0].url
-      })
+        })
         .catch((err)=> {
           console.log(error);
-      })
+        })
     },
     methods: {
       toggleInfo() {
@@ -137,7 +133,13 @@
       },
       following() {
         this.message= '已关注',
-        this.util.following();
+          this.follow= {
+            color: '#000',
+            backgroundColor: '#fff',
+            border: '1px solid #999',
+            transition: 'all .2s'
+          },
+          this.util.following();
       },
       back() {
         this.$router.push(

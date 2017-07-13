@@ -7,6 +7,7 @@ import Disport from '@/components/disport'
 import Article from '@/components/article'
 import Recommend from '@/components/recommend'
 import Search from '@/components/search'
+import SearchPlay from '@/components/searchPlay'
 
 Vue.use(Router)
 
@@ -42,11 +43,6 @@ export default new Router({
       component: Drama
     },
     {
-      path: '/drama/:season_id',
-      name: 'dramaPlay',
-      component: DramaPlay
-    },
-    {
       path: '/recommend',
       name: 'recommend',
       component: Recommend
@@ -55,5 +51,10 @@ export default new Router({
       path: '/#/search',
       component: Search
     },
+    {
+      path: '/searchPlay/:aid',
+      name: 'searchPlay',
+      component: SearchPlay
+    }
   ]
 })
