@@ -40,7 +40,7 @@
           }
       },
       created() {
-          this.axios.get('/api/recommend-list')
+          this.axios.get('https://api.imjad.cn/bilibili/?get=recommend')
             .then(res => {
               this.$store.state.recommendList = res.data.list;
 //              console.log(res.data.list);

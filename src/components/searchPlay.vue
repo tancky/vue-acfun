@@ -23,7 +23,7 @@
           <img src="https://ooo.0o0.ooo/2017/06/30/595605552345a.png" alt="">
           <h4>UP主:</h4>
           <p class="author-name">{{searchAuthor}}</p>
-          <div class="follow" @click="following">
+          <div class="follow" :style="follow" @click="following">
             <span>{{message}}</span>
           </div>
         </div>
@@ -60,7 +60,11 @@
             comment: '',
             cmtContent: '',
             info: '',
-            message: '+ 关 注'
+            message: '+ 关 注',
+            follow: {
+              color: '#fff',
+              backgroundColor: '#fd4c5d'
+            }
           }
       },
     computed: {
@@ -76,18 +80,10 @@
     },
     created() {
       let aid =  this.$route.params.aid
-      this.axios.get('/api/comments/' + aid)
+      this.axios.get('https://api.imjad.cn/bilibili/?get=comments&aid=' + aid)
         .then((res) => {
 //          console.log(res.data.data.replies)
           this.comment = res.data.data.replies;
-      })
-        .catch((error) => {
-          console.log(error)
-      })
-      this.axios.get('/api/search/' + aid)
-        .then((res) => {
-          console.log(res.data.data)
-          this.info = res.data.data;
       })
         .catch((error) => {
           console.log(error)
@@ -137,6 +133,12 @@
       },
       following() {
         this.message= '已关注',
+        this.follow= {
+          color: '#000',
+          backgroundColor: '#fff',
+          border: '1px solid #999',
+          transition: 'all .2s'
+        },
         this.util.following();
       },
       back() {

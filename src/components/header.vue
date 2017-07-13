@@ -64,8 +64,8 @@
           </div>
         </div>
         <div class="a-sideItem">
-          <div class="SignIn" :style="{backgroundColor: skinColor}">
-            <span>签到</span>&nbsp;&nbsp;领取香蕉
+          <div class="SignIn" :style="signIn" @click="sign">
+            <span>{{message}}</span>&nbsp;&nbsp;{{getBanana}}
           </div>
           <ul class="sidelist">
             <li>
@@ -120,8 +120,17 @@
         <div class="searchBar">
           <div class="s-head">
             <i class="fa fa-angle-left" @click="back"></i>
-              <input type="text" placeholder="输入关键词或AC号">
-            <i class="fa fa-search "></i>
+              <input type="text" placeholder="输入关键词或AC号" v-model="keywords" @keypress.enter="searchSub">
+            <i class="fa fa-search " @click="searchSub"></i>
+          </div>
+          <div class="searchList" v-show="isListShow">
+            <ul>
+              <li v-for="list in searchList" @click="searchPlay(list.aid, list.title, list.description, list.author)">
+                <img :src="list.pic" alt="" class="pic">
+                <span class="title">{{list.title}}</span>
+                <span class="author">UP主: {{list.author}}</span>
+              </li>
+            </ul>
           </div>
           <div class="s-hot">
             <h2>热门搜索</h2>
@@ -152,6 +161,12 @@ export default {
         sideBarShow: false,
         isShowSkin: true,
         keywords: '',
+        message: '签到',
+        getBanana: '领取香蕉',
+        signIn: {
+            color: '#fff',
+            backgroundColor: '#fd4c5d'
+        }
       }
     },
     created() {
@@ -163,6 +178,12 @@ export default {
       },
       searchbarShow() {
         return this.$store.state.searchbarShow
+      },
+      searchList() {
+        return this.$store.state.searchList
+      },
+      isListShow() {
+        return this.$store.state.isListShow
       }
     },
     methods: {
@@ -179,6 +200,40 @@ export default {
         this.$store.commit('changeColor',color)
         this.isShowSkin = !this.isShowSkin
         localStorage.skinColor = color
+      },
+      searchSub () {
+        let keywords = this.keywords
+        this.util.openIndicator()
+        this.axios.post('https://api.imjad.cn/bilibili/?get=search&keyword=' + keywords ).then((res) => {
+          this.util.closeIndicator()
+          this.$store.state.searchList = res.data.result.video
+          this.$store.state.isListShow = true
+        }).catch((error) => {
+          this.util.pop()
+          this.keywords = ''
+        })
+      },
+      searchPlay (aid, title, description,author) {
+        this.$router.push(
+          {name: 'searchPlay', params: {'aid': aid}}
+        )
+        this.$store.state.searchTitle = title
+        this.$store.state.searchDesc = description
+        this.$store.state.searchAuthor = author
+        this.$store.state.isListShow = false;
+        this.$store.state.searchbarShow = false;
+      },
+//      函数命名冲突会导致 fns.apply is not a function
+      sign() {
+         this.message = '今日已签到',
+         this.getBanana = '',
+         this.signIn = {
+           color: '#000',
+           backgroundColor: '#fff',
+           transition: 'all .2s'
+         },
+         this.util.register();
+
       },
       back () {
         this.$router.push(

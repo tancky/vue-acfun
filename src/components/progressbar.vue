@@ -1,6 +1,6 @@
 <template>
   <div>
-    <mt-button type="primary" class="upload" @click="upload">上传文件</mt-button>
+    <mt-button type="primary" class="upload" @click="loading">上传文件</mt-button>
     <mt-progress :value="value" :bar-height="3" v-if="uploadShow">
       <div slot="end">{{value}}%</div>
     </mt-progress>
@@ -18,9 +18,9 @@
           }
       },
     methods: {
-      upload() {
+      loading() {
         let that =this;
-        that.uploadShow= !that.uploadShow;
+        that.uploadShow= ! that.uploadShow;
         that.upload=setInterval(()=> {
             that.value++ ;
             if(that.value >= 100){
