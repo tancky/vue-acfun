@@ -51,6 +51,11 @@ export default new Router({
       component: Drama
     },
     {
+      path: '/drama/:season_id',
+      name: 'dramaPlay',
+      component: DramaPlay
+    },
+    {
       path: '/recommend',
       name: 'recommend',
       component: Recommend
