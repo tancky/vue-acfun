@@ -234,7 +234,7 @@
       },
       back () {
         this.$router.push(
-          {path: '/recommend'}
+          {path: '/'}
         )
         this.$store.state.searchbarShow  = false
       }
