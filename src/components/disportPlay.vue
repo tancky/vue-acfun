@@ -1,8 +1,10 @@
 <template>
   <div class="wrap">
     <div class="header-bar">
-      <i class="fa fa-arrow-left" @click="back"></i>
-      <span>av{{aid}}</span>
+      <router-link to="/disport">
+        <i class="fa fa-arrow-left"></i>
+      </router-link>
+      <span>ac{{aid}}</span>
       <i class="fa fa-ellipsis-v"></i>
     </div>
     <div>
@@ -16,13 +18,13 @@
     </div>
     <div class="content">
       <div class="show-info" v-show="isInfoShow">
-        <h4 class="title">{{searchTitle}}</h4>
-        <p class="desc">【简介】:&nbsp;&nbsp; {{searchDesc}}</p>
+        <h4 class="title">{{disportTitle}}</h4>
+        <p class="desc">【简介】</p>
         <p class="about">【标签相关】</p>
         <div class="author">
           <img src="https://ooo.0o0.ooo/2017/06/30/595605552345a.png" alt="">
           <h4>UP主:</h4>
-          <p class="author-name">{{searchAuthor}}</p>
+          <p class="author-name">{{disportAuthor}}</p>
           <div class="follow" :style="follow" @click="following">
             <span>{{message}}</span>
           </div>
@@ -68,14 +70,14 @@
       }
     },
     computed: {
-      searchTitle () {
-        return this.$store.state.searchTitle
+      disportList() {
+        return this.$store.state.disportList
       },
-      searchDesc () {
-        return this.$store.state.searchDesc
+      disportTitle () {
+        return this.$store.state.disportTitle
       },
-      searchAuthor() {
-        return this.$store.state.searchAuthor
+      disportAuthor() {
+        return this.$store.state.disportAuthor
       }
     },
     created() {
@@ -88,7 +90,6 @@
     .catch((error) => {
         console.log(error)
     })
-
     },
     mounted() {
       let aid = this.$route.params.aid;
@@ -141,18 +142,11 @@
             transition: 'all .2s'
           },
           this.util.following();
-      },
-      back() {
-        this.$router.push(
-          { path: '/'}
-        )
-        this.$store.state.searchbarShow = true
-        this.$store.state.isListShow = true
       }
     }
   }
 </script>
 
 <style lang="less" scoped>
-  @import '../assets/css/searchPlay.less';
+  @import '../assets/css/disportPlay.less';
 </style>

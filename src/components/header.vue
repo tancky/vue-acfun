@@ -105,7 +105,7 @@
               <span>意见反馈</span>
             </li>
           </ul>
-          </div>
+        </div>
       </div>
     </transition>
     <!--侧边栏模态框-->
@@ -120,7 +120,7 @@
         <div class="searchBar">
           <div class="s-head">
             <i class="fa fa-angle-left" @click="back"></i>
-              <input type="text" placeholder="输入关键词或AC号" v-model="keywords" @keypress.enter="searchSub">
+            <input type="text" placeholder="输入关键词或AC号" v-model="keywords" @keypress.enter="searchSub">
             <i class="fa fa-search " @click="searchSub"></i>
           </div>
           <div class="searchList" v-show="isListShow">
@@ -154,8 +154,7 @@
 </template>
 
 <script>
-
-export default {
+  export default {
     data() {
       return {
         sideBarShow: false,
@@ -164,13 +163,12 @@ export default {
         message: '签到',
         getBanana: '领取香蕉',
         signIn: {
-            color: '#fff',
-            backgroundColor: '#fd4c5d'
+          color: '#fff',
+          backgroundColor: '#fd4c5d'
         }
       }
     },
     created() {
-
     },
     computed: {
       skinColor() {
@@ -225,24 +223,23 @@ export default {
       },
 //      函数命名冲突会导致 fns.apply is not a function
       sign() {
-         this.message = '今日已签到',
-         this.getBanana = '',
-         this.signIn = {
-           color: '#000',
-           backgroundColor: '#fff',
-           transition: 'all .2s'
-         },
-         this.util.register();
-
+        this.message = '今日已签到',
+          this.getBanana = '',
+          this.signIn = {
+            color: '#000',
+            backgroundColor: '#fff',
+            transition: 'all .2s'
+          },
+          this.util.register();
       },
       back () {
         this.$router.push(
-          {path: '/recommend'}
+          {path: '/'}
         )
         this.$store.state.searchbarShow  = false
       }
     }
-}
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

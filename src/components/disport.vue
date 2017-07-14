@@ -13,7 +13,7 @@
     <div class="hot-disport">
       <img src="../assets/img/top100.png" alt="" class="hot-top" >
       <div class="disport-content">
-        <div class="disport-item col-xs-6 fl" v-for="item in disportList">
+        <div class="disport-item col-xs-6 fl" v-for="item in disportList" @click='disportPlay(item.aid,item.title, item.author)'>
           <img :src="item.pic" alt="" class="disport-img">
           <div class="disport-info">
             <span class="disport-title">{{item.title}}</span>
@@ -50,9 +50,21 @@
         this.axios.get('https://api.imjad.cn/bilibili/?get=rank&content=5')
           .then (res => {
             this.$store.state.disportList = res.data.rank.list;
-//             console.log(res.data);
+             console.log(res.data);
           })
       },
+      methods: {
+        disportPlay(aid, title, author) {
+          this.$router.push({
+            name: 'disportPlay',
+            params: {
+              'aid' : aid
+            }
+          })
+          this.$store.state.disportTitle = title
+          this.$store.state.disportAuthor = author
+        }
+      }
   }
 </script>
 

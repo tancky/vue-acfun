@@ -23,8 +23,12 @@ const store= new Vuex.Store({
   state: {
     dramaList: [],
     searchList: [],
+    disportList: [],
     recommendList: [],
     skinColor: localStorage.skinColor || 'fd4c5d',
+    searchTitle: '',
+    searchAuthor: '',
+    searchDesc: '',
     searchbarShow: false,
     isListShow: false
   },

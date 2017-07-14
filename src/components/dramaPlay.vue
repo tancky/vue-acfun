@@ -1,8 +1,10 @@
 <template>
   <div class="wrap">
     <div class="header-bar">
-      <i class="fa fa-arrow-left" @click="back"></i>
-      <span>av{{aid}}</span>
+      <router-link to="/drama">
+        <i class="fa fa-arrow-left"></i>
+      </router-link>
+      <span>ac{{season_id}}</span>
       <i class="fa fa-ellipsis-v"></i>
     </div>
     <div>
@@ -16,13 +18,13 @@
     </div>
     <div class="content">
       <div class="show-info" v-show="isInfoShow">
-        <h4 class="title">{{searchTitle}}</h4>
-        <p class="desc">【简介】:&nbsp;&nbsp; {{searchDesc}}</p>
+        <h4 class="title">{{dramaTitle}}</h4>
+        <p class="desc">【简介】</p>
         <p class="about">【标签相关】</p>
         <div class="author">
           <img src="https://ooo.0o0.ooo/2017/06/30/595605552345a.png" alt="">
           <h4>UP主:</h4>
-          <p class="author-name">{{searchAuthor}}</p>
+          <p class="author-name">tancky</p>
           <div class="follow" :style="follow" @click="following">
             <span>{{message}}</span>
           </div>
@@ -55,7 +57,7 @@
       return {
         isInfoShow: true,
         isCommentShow: false,
-        aid: this.$route.params.aid,
+        season_id: this.$route.params.season_id,
         videoSrc: '',
         comment: '',
         cmtContent: '',
@@ -68,38 +70,37 @@
       }
     },
     computed: {
-      searchTitle () {
-        return this.$store.state.searchTitle
+      dramaList() {
+        return this.$store.state.dramaList
       },
-      searchDesc () {
-        return this.$store.state.searchDesc
+      dramaTitle () {
+        return this.$store.state.dramaTitle
       },
-      searchAuthor() {
-        return this.$store.state.searchAuthor
-      }
-    },
-    created() {
-      let aid =  this.$route.params.aid
-      this.axios.get('https://api.imjad.cn/bilibili/?get=comments&aid=' + aid)
-        .then((res) => {
-//          console.log(res.data.data.replies)
-        this.comment = res.data.data.replies;
-    })
-    .catch((error) => {
-        console.log(error)
-    })
 
     },
+    created() {
+      let season_id =  this.$route.params.season_id
+      this.axios.get('https://api.imjad.cn/bilibili/?get=comments&season_id=' + season_id)
+        .then((res) => {
+//          console.log(res.data.data.replies)
+          this.comment = res.data.data.replies;
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
     mounted() {
-      let aid = this.$route.params.aid;
-      this.axios.post('https://api.imjad.cn/bilibili/?aid='+ aid +'&page=1&quality=2')
-        .then((res)=> {
-//          console.log(res);
-          this.videoSrc= res.data.durl[0].url
-        })
-        .catch((err)=> {
-          console.log(error);
-        })
+      let season_id =  this.$route.params.season_id
+      this.axios.post('https://api.imjad.cn/bilibili/?season_id=' + season_id + '&page=1&quality=2&index=1').then((res) => {
+        this.videoSrc = res.data.durl[0].url
+      }).catch((error) => {
+        console.log(error)
+      })
+      this.axios.post('https://api.imjad.cn/bilibili/?get=comments&season_id=' + season_id ).then((res) => {
+        this.comment = res.data.data.replies
+      }).catch((error) => {
+        console.log(error)
+      })
     },
     methods: {
       toggleInfo() {
@@ -141,18 +142,11 @@
             transition: 'all .2s'
           },
           this.util.following();
-      },
-      back() {
-        this.$router.push(
-          { path: '/'}
-        )
-        this.$store.state.searchbarShow = true
-        this.$store.state.isListShow = true
       }
     }
   }
 </script>
 
 <style lang="less" scoped>
-  @import '../assets/css/searchPlay.less';
+  @import '../assets/css/recommendPlay.less';
 </style>

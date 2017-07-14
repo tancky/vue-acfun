@@ -6,7 +6,7 @@
       <h4>猴山头条</h4>
     </div>
     <div class="top-content">
-      <div class="top-item col-xs-6" v-for="item in recommendList" key="item.aid">
+      <div class="top-item col-xs-6" @click='recommendPlay(item.aid,item.title, item.description, item.author)' v-for="item in recommendList" key="item.aid">
         <img :src="item.pic" alt="" class="show-img">
         <div class="top-info">
           <span class="top-tag">【{{item.typename}}】</span>
@@ -24,28 +24,39 @@
 
 <script>
   import aSwipe from '@/components/swipe.vue'
-
   export default {
-      data() {
-          return {
-
-          }
-      },
-      components: {
-          aSwipe
-      },
-      computed: {
-          recommendList() {
-              return this.$store.state.recommendList;
-          }
-      },
-      created() {
-          this.axios.get('https://api.imjad.cn/bilibili/?get=recommend')
-            .then(res => {
-              this.$store.state.recommendList = res.data.list;
-//              console.log(res.data.list);
-            })
+    data() {
+      return {
       }
+    },
+    components: {
+      aSwipe
+    },
+    computed: {
+      recommendList() {
+        return this.$store.state.recommendList;
+      }
+    },
+    created() {
+      this.axios.get('https://api.imjad.cn/bilibili/?get=recommend')
+        .then(res => {
+          this.$store.state.recommendList = res.data.list;
+//              console.log(res.data.list);
+        })
+    },
+    methods: {
+      recommendPlay(aid, title, description,author) {
+        this.$router.push({
+          name: 'recommendPlay',
+          params: {
+            'aid' : aid
+          }
+        })
+        this.$store.state.recommendTitle = title
+        this.$store.state.recommendDesc = description
+        this.$store.state.recommendAuthor = author
+      }
+    }
   }
 </script>
 

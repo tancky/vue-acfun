@@ -9,31 +9,30 @@
 
 <script>
   import { Progress,Button,Toast } from 'mint-ui';
-
   export default {
-      data() {
-          return {
-            uploadShow: false,
-            value: 0
-          }
-      },
+    data() {
+      return {
+        uploadShow: false,
+        value: 0
+      }
+    },
     methods: {
       loading() {
         let that =this;
         that.uploadShow= ! that.uploadShow;
         that.upload=setInterval(()=> {
-            that.value++ ;
-            if(that.value >= 100){
-              let instance = Toast({
-                message: '上传成功',
-                position: 'bottom',
-                duration: 5000
-              });
-              setTimeout(() => {
-                instance.close();
-              }, 2000);
-              clearInterval(that.upload);
-            }
+          that.value++ ;
+          if(that.value >= 100){
+            let instance = Toast({
+              message: '上传成功',
+              position: 'bottom',
+              duration: 5000
+            });
+            setTimeout(() => {
+              instance.close();
+            }, 2000);
+            clearInterval(that.upload);
+          }
         },10)
       }
     }

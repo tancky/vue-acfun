@@ -11,7 +11,7 @@
       <img src="../assets/img/drama.png" alt="" class="fl">
       <h4>新番连载</h4>
       <div class="drama-content">
-        <div class="drama-item col-xs-4 fl" @click="showPlay(item.season_id)" v-for="item in dramaList">
+        <div class="drama-item col-xs-4 fl" @click="dramaPlay(item.season_id,item.title)" v-for="item in dramaList">
           <img :src="item.cover" alt="" class="drama-img">
           <div class="drama-info">
             <span class="drama-title">{{item.title}}</span>
@@ -39,16 +39,17 @@
         this.axios.get('https://api.imjad.cn/bilibili/?get=rank&content=global')
           .then (res => {
             this.$store.state.dramaList = res.data.result.list;
-//            console.log(res.data.result.list);
+            console.log(res.data.result.list);
           })
       },
-      methods: {
-        showPlay(season_id) {
-            this.$router.push(
-              {name: 'dramaPlay', paramas: {'season_id': season_id}}
-            )
-        }
+    methods: {
+      dramaPlay(season_id,title) {
+        this.$router.push(
+          {name: 'dramaPlay', params: {'season_id': season_id}}
+        )
+        this.$store.state.dramaTitle= title
       }
+    }
 
   }
 </script>
