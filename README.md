@@ -5,14 +5,14 @@
 ## 项目描述
 
 - [项目源码](https://github.com/tancky/vue-acfun/)
-- [在线预览](https://github.com/tancky/vue-acfun/)(待实现)
+- [在线预览](https://tancky.github.io/vue-acfun/#/)
 
 ### 技术栈
 
 - ES6  全面ES6语法编写
 - Vue.js (version 2.0)  
 - Vue-router  Vue官方路由库,处理路由请求
-- axios  处理Ajax请求 
+- axios  处理Ajax请求
 - Vuex  状态管理模式，管理组件间的状态，实现非父子组件之间的通信
 - mint-ui 移动端UI组件库
 - less CSS预处理语言
@@ -22,8 +22,10 @@
 ### 功能介绍
 > v-1.0版本
 
-- AcFun首页（关注、推荐、番剧、娱乐、文章、频道、侧边栏滑动切换）
+- AcFun首页（关注、推荐、番剧、娱乐、文章、频道、侧边栏滑动切换交互效果）
 - 搜索页面
+- 评论功能
+- 视频播放功能
 - 页面主题颜色切换
 
 
