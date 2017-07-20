@@ -31,7 +31,7 @@
 ### 遇到的问题(待更新)
 
 
-![图片预览](http://chuantu.biz/t5/144/1500566798x2071546922.gif)
+![图片预览](http://i1.buimg.com/1949/2cb42d6b37c99686.gif)
 
 
 ## Build Setup
